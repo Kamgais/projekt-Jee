@@ -1,0 +1,219 @@
+<!DOCTYPE html   >
+<html lang="en"   xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LoginPage</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container{
+
+            background: linear-gradient(90deg, rgba(131,58,180,0) 0%, rgb(233, 226, 226) 0%, rgb(58, 182, 109) 100%);
+            padding: 0 30px;
+            margin: 40px auto;
+            width: 30vw;
+            height: auto;
+        }
+
+
+        body{
+
+            margin: 0;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            padding: 60px 0;
+        }
+
+
+
+
+
+        img{
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+
+
+
+
+
+
+        .formular{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+
+        }
+        .formular .username-login{
+            position: relative;
+            margin-bottom: 10px;
+
+        }
+
+        .username, .password{
+            width: 80%;
+            height: 40px;
+            border: none;
+            outline: none;
+            border-radius: 20px;
+            padding-left: 60px;
+            font-size: 13px;
+            border-color: rgb(67, 138, 245);
+
+
+        }
+
+        .checkbox-zone{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            font-size: 12px;
+            color: #000 ;
+
+        }
+
+        .checkbox-zoneF{
+            margin-left: 50px;
+            color:  rgb(67, 138, 245);
+
+
+
+
+        }
+
+        .password{
+            margin-bottom: 20px;
+        }
+
+
+        button{
+            background-color: rgb(58, 182, 109);
+            border: none;
+            width: 140px;
+            height: 40px;
+            border-radius: 20px;
+            color: #fff;
+            margin-bottom: 30px;
+            transition: all 0.4s ease-in-out;
+            text-decoration: none;
+            color: #fff;
+        }
+
+
+        button:hover{
+            background-color: #fff;
+            cursor: pointer;
+            color: rgb(7, 112, 33) ;
+
+        }
+
+
+
+
+
+
+        .user,.pass{
+            position: absolute;
+            top: 12px;
+            left: 15px;
+        }
+
+        .password-login{
+            position: relative;
+        }
+
+
+        .line{
+            width: 2px;
+            height: 30px;
+            background-color: gray;
+            position: absolute;
+            top: 8px;
+            left: 40px;
+
+        }
+
+
+
+
+
+
+        h2{
+            text-align: center;
+            font-size: 90px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="logo">
+
+       <h2>Go Work!</h2>
+
+    </div>
+
+    <form  onclick="prevent()" th:action="@{/result}" th:object="${user}"  method="post" >
+
+
+        <div class="formular">
+            <div class="username-login">
+                <i class="fas fa-user user"></i>
+                <div class="line"></div>
+                <input type="text" th:field="*{username}" class="username" placeholder="enter your username">
+            </div>
+            <div class="password-login">
+                <i class="fas fa-unlock-alt pass"></i>
+                <div class="line"></div>
+                <input type="password" th:field="*{password}"  class="password" placeholder="enter your password">
+            </div>
+            <div class="checkbox-zone">
+                <div class="checkbox-zoneR">
+                    <input type="checkbox"> Remember me
+                </div>
+                <div class="checkbox-zoneF">
+                    <a href=""> Forgot password?</a>
+                </div>
+
+
+            </div>
+
+
+            <div class="login-button">
+                <button type="submit">LOGIN</button>
+            </div>
+        </div>
+    </form>
+
+
+</div>
+<script>
+
+     function prevent(e){
+
+        e.preventDefault();
+     }
+
+</script>
+
+</body>
+</html>
