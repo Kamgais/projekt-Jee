@@ -1,6 +1,8 @@
 package com.example.mitarbeiterverwaltungapp.Entities;
 
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,4 +21,7 @@ public class User {
       private Long id ;
     private String username;
     private String password;
+
+    @OneToOne(mappedBy = "user" , fetch = FetchType.EAGER)
+    private Mitarbeiter mitarbeiter;
 }

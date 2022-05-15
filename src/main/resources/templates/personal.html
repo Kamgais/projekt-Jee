@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal</title>
+</head>
+<body>
+
+<h1>Ich bin der PERSONALVERWALTER !!!</h1>
+
+<form th:action="@{/result2}"  method="post" th:object="${mitarbeiter}">
+   <input type="text"  th:field= "*{nachname}">
+   <input type="text" th:field="*{vorname}">
+   <input type="number" th:field="*{gehalt}">
+   <input type="text" th:field="*{adresse}">
+  <input type="number" th:field="*{telefonnummer}">
+  <input type="text"th:field="*{abteilung}">
+  <input type="number" th:field="*{arbeitzeit}">
+    <input type="text" th:field="*{getUser().getUsername()}">
+    <input type="number" th:field="*{getUser().getPassword()}">
+
+    <button>ADD</button>
+
+</form>
+
+</body>
+</html>

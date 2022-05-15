@@ -3,24 +3,32 @@ package com.example.mitarbeiterverwaltungapp.controller;
 
 import com.example.mitarbeiterverwaltungapp.Entities.Mitarbeiter;
 import com.example.mitarbeiterverwaltungapp.Entities.User;
-import com.example.mitarbeiterverwaltungapp.repository.MitarbeiterRepository;
+
 import com.example.mitarbeiterverwaltungapp.service.UserService;
+
+
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.util.Optional;
+
 
 @Controller
 @AllArgsConstructor
+
 public class UserController {
 
 
-    private final UserService userService;
-    private final MitarbeiterRepository mitarbeiterRepository;
+    private final UserService userService ;
+
+
+
 
     @GetMapping("/loginpage")
 
@@ -36,21 +44,45 @@ public class UserController {
 
     @PostMapping("/result")
 
-    public String submitForm(@ModelAttribute("user") User user,Model erepas){
+    public String submitForm(@ModelAttribute("user") User user, Model model){
 
-             if(userService.getMitarbeiter(user) != null) {
-                Optional <Mitarbeiter> mitarbeiter = mitarbeiterRepository.findById(userService.getMitarbeiter(user));
-                 erepas.addAttribute("mitarbeiter", mitarbeiter);
-             }
-        if(!userService.isAUser(user)) {
+         String message = userService.isAUser(user);
 
-            return "fehler";
-        }
-        else
-        {
+        if(message.equals("mitarbeiteR")) {
+
+            Mitarbeiter mitarbeiter = userService.getMitarbeiter(user);
+
+            model.addAttribute("mitarbeiter",mitarbeiter);
 
             return "sucess";
         }
+        else if(message.equals("personalw")){
+
+            Mitarbeiter mitarbeiter = new Mitarbeiter();
+
+            model.addAttribute("mitarbeiter",mitarbeiter);
+
+            return "personal";
+        }
+
+         else {
+             return "fehler";
+
+        }
+        }
+
+
+       @PostMapping("/result2")
+
+    public String saveWorker(@ModelAttribute("mitarbeiter") Mitarbeiter mitarbeiter){
+
+      /*  userService.saveMitarbeiter(mitarbeiter);*/
+
+
+        return "personal";
+        }
+
+
 
     }
 
@@ -59,4 +91,4 @@ public class UserController {
 
 
 
-}
+

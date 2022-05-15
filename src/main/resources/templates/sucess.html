@@ -6,14 +6,14 @@
 </head>
 <body>
 
-<h1 style="text-align: center;" th:text="${mitarbeiter.getNachname()}"></h1>
+<h1 th:text="${mitarbeiter.getNachname()}"></h1>
+<h1 th:text="${mitarbeiter.getVorname()}"></h1>
+<h1 th:text="${mitarbeiter.getAbteilung()}"></h1>
+<h1 th:text="${mitarbeiter.getAdresse()}"></h1>
+<h1 th:text="${mitarbeiter.getTelefonnummer()}"></h1>
 
 
-<ul >
-    <li th:text="${mitarbeiter.getVorname()}">
 
-    </li>
-</ul>
 
 </body>
 </html>

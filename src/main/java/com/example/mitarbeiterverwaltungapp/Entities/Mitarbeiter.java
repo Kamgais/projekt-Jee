@@ -1,6 +1,8 @@
 package com.example.mitarbeiterverwaltungapp.Entities;
 
 
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,10 +12,11 @@ import javax.persistence.*;
 
 
 
+
+@Entity
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Data
-@Entity
 @Table(name = "mitarbeiter")
 public class Mitarbeiter {
     @Id
@@ -27,8 +30,11 @@ public class Mitarbeiter {
     private float gehalt;
     private String adresse;
     private Long telefonnummer;
-    private String abteitung;
+    private String abteilung;
     private int arbeitzeit;
+
+    @OneToOne
+    private User user;
 
 
 }
