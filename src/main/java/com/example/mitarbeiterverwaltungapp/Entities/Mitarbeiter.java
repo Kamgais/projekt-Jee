@@ -33,6 +33,7 @@ public class Mitarbeiter {
     private String abteilung;
     private int arbeitzeit;
     private String geschlecht;
+    private int alter;
 
     @OneToOne
     private User user;

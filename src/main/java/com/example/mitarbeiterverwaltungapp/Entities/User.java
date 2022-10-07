@@ -21,6 +21,7 @@ public class User {
       private Long id ;
     private String username;
     private String password;
+    private String vorname;
 
     @OneToOne(mappedBy = "user" , fetch = FetchType.EAGER)
     private Mitarbeiter mitarbeiter;
