@@ -32,6 +32,7 @@ public class Mitarbeiter {
     private Long telefonnummer;
     private String abteilung;
     private int arbeitzeit;
+    private String geschlecht;
 
     @OneToOne
     private User user;
